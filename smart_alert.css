@@ -1,0 +1,135 @@
+:root {
+    --smart-alert-padding: 2rem;
+    --del-btn-size: 24px;
+}
+
+.smartAlert {
+    position: fixed;
+    z-index: 9999;
+    min-width: 360px;
+    max-width: 50%;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px gray;
+    padding: .75rem 1rem;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all .75s 0s ease;
+    animation: slidein .75s ease;
+}
+
+.smartAlertTitle {
+    width: 100%;
+    font-size: inherit;
+    font-weight: bold;
+    font-family: inherit;
+    margin-bottom: .75rem;
+}
+
+.smartAlertTitle p {
+    display: inline-block;
+    width: calc(100% - var(--del-btn-size));
+    margin: 0;
+}
+
+.smartAlertDelBtn {
+    width: var(--del-btn-size);
+    height: var(--del-btn-size);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.smartAlertDelBtn::before,
+.smartAlertDelBtn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: calc(var(--del-btn-size));
+    width: 2px;
+    background-color: gray;
+    top: .75rem;
+    right: 1.5rem;
+    background-color: whitesmoke;
+    cursor: pointer;
+    transition: width .2s 0s ease;
+}
+
+.smartAlertDelBtn::before {
+    transform: rotate(-45deg);
+}
+
+.smartAlertDelBtn::after {
+    transform: rotate(45deg);
+}
+
+.smartAlertDelBtn:hover::before,
+.smartAlertDelBtn:hover::after {
+    width: 4px;
+}
+
+.smartAlertMsg {
+    font-size: inherit;
+    font-weight: lighter;
+    font-family: inherit;
+}
+
+.top-left {
+    top: var(--smart-alert-padding);
+    left: var(--smart-alert-padding);
+}
+
+.top-right {
+    top: var(--smart-alert-padding);
+    right: var(--smart-alert-padding);
+}
+
+.btm-left {
+    bottom: var(--smart-alert-padding);
+    left: var(--smart-alert-padding);
+}
+
+.btm-right {
+    bottom: var(--smart-alert-padding);
+    right: var(--smart-alert-padding);
+}
+
+.info {
+    background-color: rgba(3, 156, 97);
+    color: whitesmoke;
+}
+
+.primary {
+    background-color: #062F4F;
+    color: whitesmoke;
+}
+
+.warning {
+    background-color: rgb(241, 227, 28);
+    color: black;
+}
+
+.danger {
+    background-color: #d10303c4;
+    color: whitesmoke;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fadeout {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+@keyframes slidein {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

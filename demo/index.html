@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>smart alert -demo-</title>
+    <link rel="stylesheet" href="../smart_alert.css">
+</head>
+
+<body>
+    <h1>demo smart alert</h1>
+    <p>Enter the title and message of the alert to be displayed in the input field and press the "push alert" button.</p>
+    <div>
+        <label for="title" style="display: inline-block; width: 8rem;">alert title</label>
+        <input id="title" type="text">
+    </div>
+    <div>
+        <label for="msg" style="display: inline-block; width: 8rem;">alert message</label>
+        <textarea id="msg" name="msg" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <label for="type">choose alert type</label>
+        <select id="type">
+            <option value="primary">primary</option>
+            <option value="info">info</option>
+            <option value="danger">danger</option>
+            <option value="warning">warning</option>
+        </select>
+    </div>
+    <div>
+        <label for="position">choose alert position</label>
+        <select id="position">
+            <option value="top-left">top-left</option>
+            <option value="top-right">top-right</option>
+            <option value="btm-left">bottom-left</option>
+            <option value="btm-right">bottom-right</option>
+        </select>
+    </div>
+    <div>
+        <button id="submit">push alert</button>
+    </div>
+    <script src="../smart_alert.js"></script>
+    <script>
+        // welcome message
+        const welcomeAlert = new SmartAlert('this is Title',
+            'This is the message to be displayed in the alert.\nDo you see it?\nWell, get started and you too can use this great module!',
+            'primary',
+        );
+        welcomeAlert.push();
+
+        document.getElementById('submit').addEventListener('click', () => {
+            const title = document.getElementById('title').value;
+            const msg = document.getElementById('msg').value;
+            const type = document.getElementById('type').value;
+            const position = document.getElementById('position').value;
+            const alert = new SmartAlert(title, msg, type, position);
+            alert.push();
+        });
+    </script>
+</body>
+
+</html>
