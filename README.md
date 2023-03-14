@@ -1,4 +1,4 @@
-# Smart alert
+# Smart Alert
 
 Smart Alert is a JavaScript module that nicely displays alerts.  
 ![Videotogif](https://user-images.githubusercontent.com/44756367/225110140-f6a8d108-3ad5-49a0-b81a-3bcfa76a4499.gif)
