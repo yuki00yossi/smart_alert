@@ -35,8 +35,8 @@ If this argument is not specified, set top-right by default.
 4. btm-right
 
 ## Contributing
-
-Please read [CONTRIBUTING.md]() for details on our code of conduct, and the process for submitting pull requests to us.
+Contributions are welcome!
+Feel free to make an issue or send us a pull request.
 
 ## License
 
