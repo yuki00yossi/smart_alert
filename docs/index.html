@@ -58,37 +58,21 @@
         );
         welcomeAlert.push();
 
-
         document.getElementById('submit').addEventListener('click', () => {
             const title = document.getElementById('title').value;
             const msg = document.getElementById('msg').value;
             const type = document.getElementById('type').value;
             const position = document.getElementById('position').value;
 
-
-            console.log(alertsObj)
             if (!position || !type || !title || !msg) {
                 const alert = new SmartAlert("Incomplete form", "You submitted an incomplete form", "danger", "top-right");
                 alert.push();
-
-
-
             } else {
                 const alert = new SmartAlert(title, msg, type, position);
                 alert.push();
-
-
             }
-
-
-
         });
-
-
-
-
     </script>
-
 </body>
 
 </html>
