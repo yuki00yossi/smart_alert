@@ -40,7 +40,7 @@ If this argument is not specified, set top-right by default.
 3. btm-left
 4. btm-right
 
-### STEP3: Let's Push Alert!
+#### STEP3: Let's Push Alert!
 ```javascript
 alert.push();
 ```  
