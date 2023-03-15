@@ -17,6 +17,14 @@
  * 3. btm-left 画面左下に表示します。
  * 4. btm-right 画面右下に表示します。
  */
+
+let alertsObj = {
+    "top-left": [],
+    "top-right": [],
+    "btm-left": [],
+    "btm-right": []
+}
+
 class SmartAlert {
 
     constructor(
@@ -29,6 +37,7 @@ class SmartAlert {
         this.msg = msg;
         this.type = type;
         this.position = position;
+        this.index = 0;
         this.createElement();
         this.setPosition();
     }
@@ -53,8 +62,11 @@ class SmartAlert {
         deleteBtn.addEventListener('click', (e) => {
             const elm = e.currentTarget.parentNode.parentNode;
             elm.classList.remove('show');
+            this.removeFromArray();
             elm.addEventListener('transitionend', (e) => {
                 e.currentTarget.remove();
+
+
             });
         })
 
@@ -86,11 +98,40 @@ class SmartAlert {
         this.elm.style.color = textColor;
     }
 
+    pushAlertIntoArray() {
+        alertsObj[this.position].push(this.elm);
+        this.index = alertsObj[this.position].indexOf(this.elm);
+    }
+
+    removeFromArray() {
+        const index = alertsObj[this.position].indexOf(this.elm);
+        alertsObj[this.position].splice(index, 1);
+        this.arrangeAlerts()
+    }
+
+    //moves every alert in the to their respective positions on the array
+    arrangeAlerts() {
+        for (alert of alertsObj[this.position]) {
+            const index = alertsObj[this.position].indexOf(alert);
+            if (this.position.includes("top")) alert.style.top = `${alert.offsetHeight * index}px`;
+            else alert.style.bottom = `${alert.offsetHeight * index}px`;
+
+
+        }
+    }
+
     /**
      * アラートを表示する
      */
     async push() {
         const elm = await document.body.appendChild(this.elm);
         elm.classList.add('show');
+        this.pushAlertIntoArray();
+        this.arrangeAlerts();
     }
+
 }
+
+
+
+

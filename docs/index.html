@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf8">
     <title>Smart Alert</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yuki00yossi/smart_alert@latest/smart_alert.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yuki00yossi/smart_alert@latest/smart_alert.css"> -->
+    <link rel="stylesheet" href="/smart_alert.css">
     <link rel="stylesheet" href="./styles.css">
+    <!-- <script preref src="https://cdn.jsdelivr.net/gh/yuki00yossi/smart_alert@latest/smart_alert.js"></script> -->
+    <script preref src="/smart_alert.js"></script>
 </head>
 
 <body>
@@ -45,8 +48,9 @@
             <button id="submit">push alert</button>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/gh/yuki00yossi/smart_alert@latest/smart_alert.js"></script>
+
     <script>
+
         // welcome message
         const welcomeAlert = new SmartAlert('this is Title',
             'This is the message to be displayed in the alert.\nDo you see it?\nWell, get started and you too can use this great module!',
@@ -54,21 +58,37 @@
         );
         welcomeAlert.push();
 
+
         document.getElementById('submit').addEventListener('click', () => {
             const title = document.getElementById('title').value;
             const msg = document.getElementById('msg').value;
             const type = document.getElementById('type').value;
             const position = document.getElementById('position').value;
 
+
+            console.log(alertsObj)
             if (!position || !type || !title || !msg) {
                 const alert = new SmartAlert("Incomplete form", "You submitted an incomplete form", "danger", "top-right");
                 alert.push();
+
+
+
             } else {
                 const alert = new SmartAlert(title, msg, type, position);
                 alert.push();
+
+
             }
+
+
+
         });
+
+
+
+
     </script>
+
 </body>
 
 </html>
