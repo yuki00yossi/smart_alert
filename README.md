@@ -4,10 +4,11 @@
    
 </div>
 
-![image](https://i.pinimg.com/originals/51/91/ff/5191ff6f9c185ca58958409513eb5cb6.gif)
+![image](https://user-images.githubusercontent.com/44756367/225328314-c8a0ab73-f1f2-42ce-9cef-f60818331634.gif)
 
 
-
+## Demo Pages
+[https://yuki00yossi.github.io/smart_alert/](https://yuki00yossi.github.io/smart_alert/)
 
 ## Getting Started
 #### STEP 1 : Load the smart_alert.js and smart_alert.css files into your html file.  
