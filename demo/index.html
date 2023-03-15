@@ -2,41 +2,48 @@
 
 <head>
     <meta charset="utf8">
-    <title>smart alert -demo-</title>
+    <title>Smart Alert</title>
     <link rel="stylesheet" href="../smart_alert.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-    <h1>demo smart alert</h1>
-    <p>Enter the title and message of the alert to be displayed in the input field and press the "push alert" button.</p>
-    <div>
-        <label for="title" style="display: inline-block; width: 8rem;">alert title</label>
-        <input id="title" type="text">
-    </div>
-    <div>
-        <label for="msg" style="display: inline-block; width: 8rem;">alert message</label>
-        <textarea id="msg" name="msg" cols="30" rows="10"></textarea>
-    </div>
-    <div>
-        <label for="type">choose alert type</label>
-        <select id="type">
-            <option value="primary">primary</option>
-            <option value="info">info</option>
-            <option value="danger">danger</option>
-            <option value="warning">warning</option>
-        </select>
-    </div>
-    <div>
-        <label for="position">choose alert position</label>
-        <select id="position">
-            <option value="top-left">top-left</option>
-            <option value="top-right">top-right</option>
-            <option value="btm-left">bottom-left</option>
-            <option value="btm-right">bottom-right</option>
-        </select>
-    </div>
-    <div>
-        <button id="submit">push alert</button>
+    <div class="form-container">
+        <h1>Smart Alert Demo</h1>
+        <p>Enter your details below!
+        </p>
+        <div class="form-container-row">
+            <div class="input-field-cell">
+                <input id="title" type="text" placeholder="Alert title">
+            </div>
+            <div class="input-field-cell">
+                <input id="msg" name="msg" type="text" placeholder="Alert description">
+            </div>
+        </div>
+        <div class="form-container-row">
+            <div class="input-field-cell">
+                <select id="type">
+                    <option value="" disabled hidden selected>Please select the alert type</option>
+                    <option value="primary">Primary</option>
+                    <option value="info">Info</option>
+                    <option value="danger">Danger</option>
+                    <option value="warning">Warning</option>
+                </select>
+            </div>
+            <div class="input-field-cell">
+                <select id="position">
+                    <option value="" disabled hidden selected>Please select the alert position </option>
+                    <option value="top-left">Top-left</option>
+                    <option value="top-right">Top-right</option>
+                    <option value="btm-left">Bottom-left</option>
+                    <option value="btm-right">Bottom-right</option>
+                </select>
+            </div>
+        </div>
+        <p>All done? Great! Now all you have to do is push the alert!</p>
+        <div class="form-container-row">
+            <button id="submit">push alert</button>
+        </div>
     </div>
     <script src="../smart_alert.js"></script>
     <script>
@@ -52,8 +59,14 @@
             const msg = document.getElementById('msg').value;
             const type = document.getElementById('type').value;
             const position = document.getElementById('position').value;
-            const alert = new SmartAlert(title, msg, type, position);
-            alert.push();
+
+            if (!position || !type || !title || !msg) {
+                const alert = new SmartAlert("Incomplete form", "You submitted an incomplete form", "danger", "top-right");
+                alert.push();
+            } else {
+                const alert = new SmartAlert(title, msg, type, position);
+                alert.push();
+            }
         });
     </script>
 </body>
