@@ -104,17 +104,18 @@ class SmartAlert {
     }
 
     removeFromArray() {
-        const index = alertsObj[this.position].indexOf(this.elm);
-        alertsObj[this.position].splice(index, 1);
+        this.index = alertsObj[this.position].indexOf(this.elm);
+        alertsObj[this.position].splice(this.index, 1);
         this.arrangeAlerts()
     }
 
     //moves every alert in the to their respective positions on the array
     arrangeAlerts() {
+        let totalHeight = 0;
         for (alert of alertsObj[this.position]) {
-            const index = alertsObj[this.position].indexOf(alert);
-            if (this.position.includes("top")) alert.style.top = `${alert.offsetHeight * index}px`;
-            else alert.style.bottom = `${alert.offsetHeight * index}px`;
+            if (this.position.includes("top")) alert.style.top = `${totalHeight}px`;
+            else alert.style.bottom = `${totalHeight}px`;
+            totalHeight += alert.offsetHeight;
 
 
         }
