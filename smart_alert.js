@@ -18,13 +18,6 @@
  * 4. btm-right 画面右下に表示します。
  */
 
-let alertsObj = {
-    "top-left": [],
-    "top-right": [],
-    "btm-left": [],
-    "btm-right": []
-}
-
 class SmartAlert {
 
     constructor(
@@ -40,6 +33,13 @@ class SmartAlert {
         this.index = 0;
         this.createElement();
         this.setPosition();
+    }
+
+    static alertsObj = {
+        "top-left": [],
+        "top-right": [],
+        "btm-left": [],
+        "btm-right": []
     }
 
     /**
@@ -99,20 +99,20 @@ class SmartAlert {
     }
 
     pushAlertIntoArray() {
-        alertsObj[this.position].push(this.elm);
-        this.index = alertsObj[this.position].indexOf(this.elm);
+        SmartAlert.alertsObj[this.position].push(this.elm);
+        this.index = SmartAlert.alertsObj[this.position].indexOf(this.elm);
     }
 
     removeFromArray() {
-        this.index = alertsObj[this.position].indexOf(this.elm);
-        alertsObj[this.position].splice(this.index, 1);
+        this.index = SmartAlert.alertsObj[this.position].indexOf(this.elm);
+        SmartAlert.alertsObj[this.position].splice(this.index, 1);
         this.arrangeAlerts()
     }
 
     //moves every alert in the to their respective positions on the array
     arrangeAlerts() {
         let totalHeight = 0;
-        for (alert of alertsObj[this.position]) {
+        for (alert of SmartAlert.alertsObj[this.position]) {
             if (this.position.includes("top")) alert.style.top = `${totalHeight}px`;
             else alert.style.bottom = `${totalHeight}px`;
             totalHeight += alert.offsetHeight;
