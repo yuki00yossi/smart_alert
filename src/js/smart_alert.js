@@ -20,12 +20,7 @@
 
 class SmartAlert {
 
-    constructor(
-        title = '',
-        msg = '',
-        type = 'info',
-        position = 'top-right'
-    ) {
+    constructor(title = '',msg = '',type = 'info',position = 'top-right') {
         this.title = title;
         this.msg = msg;
         this.type = type;
@@ -125,7 +120,7 @@ class SmartAlert {
      * アラートを表示する
      */
     async push() {
-        const elm = await document.body.appendChild(this.elm);
+        const elm = document.body.appendChild(this.elm);
         elm.classList.add('show');
         this.pushAlertIntoArray();
         this.arrangeAlerts();
