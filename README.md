@@ -8,7 +8,7 @@
 
 
 ## Demo Pages
-[https://yuki00yossi.github.io/smart_alert/](https://yuki00yossi.github.io/smart_alert/)
+[https://yuki00yossi.github.io/smart_alert/src](https://yuki00yossi.github.io/smart_alert/src)
 
 ## Getting Started
 #### STEP 1 : Load the smart_alert.js and smart_alert.css files into your html file.  
